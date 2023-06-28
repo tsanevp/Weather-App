@@ -3,11 +3,11 @@
     font-size: 26px;
 }
 
-.error-msg {
+.msg {
     margin-bottom: 20px;
 }
 
-.error-btn {
+.btn {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -19,7 +19,7 @@
     transition: .5s;
 }
 
-.error-btn:hover {
+.btn:hover {
     color: #393E46;
     background-color: #EEEEEE;
     transition: .5s;
