@@ -5,16 +5,34 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Weather App</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans&display=swap" rel="stylesheet">
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
     <link rel="icon" type="image/x-icon" href="images/forcast-favicon.png">
     <link type="text/css" href="css/style.css" rel="stylesheet">
 </head>
 
 <body>
-    <form action="/" method="POST">
-        <label for="cityInput">City Name: </label>
-        <input id="cityInput" type="text" name="cityName">
-        <button type="submit" name="button">Sumit Button</button>
-    </form>
+    <header class="header" id="navbar">
+        <a href="/" class="logo">Weather App</a>
+
+        <nav class="nav-bar">
+            <a href="/">Home</a>
+            <a href="./About.html">About</a>
+            <a href="./Contact.html">Contact</a>
+        </nav>
+    </header>
+
+    <div class="search-form">
+        <h2 class="welcome-msg">Enter Your Location Below To View The Forcast In Your Area!</h2>
+        <form action="/" method="POST">
+            <label class="icon-placeholder" for="cityInput"><i class='bx bxs-map'></i></label>
+            <input id="cityInput" type="text" name="cityName" placeholder="Enter your location">
+            <button class="icon-placeholder" id="search-button" type="submit" name="button"><i class='bx bx-search'
+                    id="search-icon"></i></button>
+        </form>
+    </div>
 </body>
 
 </html>

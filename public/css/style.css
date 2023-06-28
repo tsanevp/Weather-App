@@ -1,0 +1,122 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    text-decoration: none;
+    font-family: 'Open Sans', sans-serif;
+}
+
+body {
+    background-color: #393E46;
+}
+
+/* Header styling */
+.header {
+    top: 0px;
+    left: 0px;
+    width: 100%;
+    padding: 20px 10%;
+    position: fixed;
+    display: inline-flex;
+    justify-content: space-between;
+    align-items: center;
+    z-index: 100;
+}
+
+.logo {
+    font-size: 36px;
+    font-weight: 600;
+    color: #EEEEEE;
+}
+
+.nav-bar {
+    width: 60%;
+    display: inline-flex;
+    justify-content: flex-end;
+}
+
+.nav-bar a {
+    margin-left: 30px;
+    font-size: 20px;
+    font-weight: 500;
+    color: #EEEEEE;
+    transition: .5s;
+}
+
+.nav-bar a:hover {
+    color: #00ADB5;
+    transition: .5s;
+}
+
+/* Search form styling */
+.search-form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+}
+
+.welcome-msg {
+    margin-bottom: 60px;
+    color: #EEEEEE;
+    font-size: 24px;
+    font-weight: bold;
+}
+
+form {
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    width: 350px;
+    height: 75px;
+    background-color: #EEEEEE;
+    border-radius: 8px;
+}
+
+.icon-placeholder {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 30px;
+    font-size: 26px;
+    color: #222831;
+}
+
+#cityInput {
+    width: 250px;
+    height: 75%;
+    border: none;
+    outline: none;
+    padding: 0px 10px;
+    font-size: 16px;
+    font-weight: bold;
+    background-color: #EEEEEE;
+    color: #222831;
+    text-transform: uppercase;
+}
+
+#search-button {
+    border: none;
+    transition: .5s;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+
+}
+
+#search-button:hover {
+    background-color: #222831;
+    color: #EEEEEE;
+    transition: .5s;
+}
+
+input:-webkit-autofill,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus,
+input:-webkit-autofill:active {
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: #222831;
+    transition: background-color 5000s ease-in-out 0s;
+    box-shadow: inset 0 0 20px 20px #EEEEEE;
+}
