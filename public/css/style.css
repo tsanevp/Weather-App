@@ -49,7 +49,7 @@ body {
 }
 
 /* Search form styling */
-.search-form {
+.middle-container {
     display: flex;
     flex-direction: column;
     align-items: center;

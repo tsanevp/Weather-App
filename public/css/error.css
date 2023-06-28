@@ -1,0 +1,27 @@
+* {
+    color: #EEEEEE;
+    font-size: 26px;
+}
+
+.error-msg {
+    margin-bottom: 20px;
+}
+
+.error-btn {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100px;
+    height: 40px;
+    font-size: 16px;
+    border-radius: 8px;
+    border: 2px #EEEEEE solid;
+    transition: .5s;
+}
+
+.error-btn:hover {
+    color: #393E46;
+    background-color: #EEEEEE;
+    transition: .5s;
+    font-weight: bold;
+}

@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Me</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans&display=swap" rel="stylesheet">
+    <link href="css/style.css" rel="stylesheet">
+    <link href="css/contact.css" rel="stylesheet">
+</head>
+
+<body>
+    <header class="header" id="navbar">
+        <a href="/" class="logo">Weather App</a>
+
+        <nav class="nav-bar">
+            <a href="/">Home</a>
+            <a href="./About.html">About</a>
+            <a href="./Contact.html">Contact</a>
+        </nav>
+    </header>
+
+    <div class="middle-container">
+        <form name="gform" id="gform" enctype="text/plain"
+            action="https://docs.google.com/forms/d/e/1FAIpQLSdOlTuA5irS-d2bUOa3ETBw6gUB0mV4hD2rBHag-CqgZADY2A/formResponse?"
+            target="hidden_iframe" onsubmit="submitted=true;">
+            <h1 class="intro-msg">Contact Me</h1>
+
+            <div class="form-field">
+                <label for="last-name-input" class="form-label">Name</label>
+                <input type="text" class="form-input" id="entry.1878016404" name="entry.1878016404"
+                    placeholder="Enter Your Name" required>
+            </div>
+
+            <div class="form-field">
+                <label for="email-input" class="form-label">Email address</label>
+                <input type="email" class="form-input" id="entry.635023" name="entry.635023"
+                    placeholder="Enter Your Email Address" required>
+            </div>
+
+            <div class="form-field">
+                <label for="message-input" class="form-label">Message</label>
+                <textarea class="form-input" id="entry.1674166243" name="entry.1674166243"
+                    placeholder="Please Type Your Message" required></textarea>
+            </div>
+
+            <div class="form-field">
+                <button type="submit" class="form-submit-btn">Submit</button>
+            </div>
+        </form>
+        <iframe title="gform" name="hidden_iframe" id="hidden_iframe" style="display:none;"
+            onload="if(submitted) {window.open('./ContactSuccessMessage.html', '_self')}"></iframe>
+    </div>
+</body>
+
+</html>

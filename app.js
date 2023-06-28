@@ -17,6 +17,15 @@ app.get("/", function(req, res) {
     res.sendFile(__dirname + "/index.html");    
 });
 
+app.get("/contact.html", function(req, res) {
+    res.sendFile(__dirname + "/contact.html");    
+});
+
+app.get("/about.html", function(req, res) {
+    res.send("Built using Nodejs and Expressjs");
+    // res.sendFile(__dirname + "/contact.html");    
+});
+
 app.post("/", function(req, res) {
     const query = req.body.cityName;
     const units = "imperial";
