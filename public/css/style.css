@@ -152,7 +152,8 @@ input:-webkit-autofill:active {
 }
 
 .hidden {
-    visibility: hidden;
+    /* visibility: hidden; */
+    opacity: 0;
 }
 
 .weather-results {
@@ -161,12 +162,18 @@ input:-webkit-autofill:active {
     display: grid;
     grid-template-columns: 50% 50%;
     grid-template-rows: 40% 30% 30%;
+    transition: 5s;
 }
 
 .weather-results > div {
     display: flex;
     flex-direction: column;
     align-items: center;
+    transition: 5s;
+}
+
+.transition-fade {
+    transition: 5s;
 }
 
 .weather-results .not-spaced {
@@ -190,6 +197,6 @@ input:-webkit-autofill:active {
     font-weight: bold;
 }
 
-#weather-description {
-
+#weather-results {
+    transition: 5s;
 }

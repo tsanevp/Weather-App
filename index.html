@@ -108,6 +108,9 @@
                     document.getElementById("temp-low").textContent = "L: " + tempMin + " F";
                     document.getElementById("data-container").classList.add("form-results");
                     document.getElementById("weather-results").classList.remove("hidden");
+                    document.querySelector(".weather-results div img").classList.add("transition-fade");
+                    console.log(document.getElementById("img-description").classList);
+
                 })
                 .catch(error => {
                     console.log("eorror");
