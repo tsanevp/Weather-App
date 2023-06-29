@@ -42,17 +42,17 @@ app.post("/", function (req, res) {
                 return;
             }
 
-            const temp = weatherData.main.temp;
-            const feelsLike = weatherData.main.feels_like;
-            const tempMin = weatherData.main.temp_min;
-            const tempMax = weatherData.main.temp_max;
-            const wind = weatherData.wind.speed;
-            const humidity = weatherData.main.humidity;
-            const description = weatherData.weather[0].description;
             const imageId = weatherData.weather[0].icon;
             const imageURL = "https://openweathermap.org/img/wn/" + imageId + "@2x.png";
+            const temp = weatherData.main.temp;
+            const description = weatherData.weather[0].description;
+            const feelsLike = weatherData.main.feels_like;
+            const humidity = weatherData.main.humidity;
+            const wind = weatherData.wind.speed;
+            const tempMax = weatherData.main.temp_max;
+            const tempMin = weatherData.main.temp_min;
 
-            res.send({ temp, feelsLike, tempMin, tempMax, wind, humidity, description, imageURL});
+            res.send({ imageURL, temp, description, feelsLike, humidity, wind, tempMax, tempMin });
         });
     }).on('error', (e) => {
         res.send(e);

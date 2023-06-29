@@ -83,54 +83,56 @@
             }).then(response => response.json())
                 .then(data => {
                     if (data.invalidLocation) {
-                        document.getElementById("error-msg").classList.remove("hidden");
+                        invalidLocationSearch();
                         return;
                     }
-                    console.log(data);
-                    // Handle the response from the server
 
-                    const temp = data.temp;
-                    const feelsLike = data.feelsLike;
-                    const tempMin = data.tempMin;
-                    const tempMax = data.tempMax;
-                    const wind = data.wind;
-                    const humidity = data.humidity;
-                    const description = data.description;
-                    const imageURL = data.imageURL;
-
-                    document.getElementById("weather-img").src = imageURL;
-                    document.getElementById("temp").textContent = temp + " F";
-                    document.getElementById("weather-description").textContent = description;
-                    document.getElementById("feels-like-temp").textContent = feelsLike + " F";
-                    document.getElementById("humidity-value").textContent = humidity + "%";
-                    document.getElementById("wind-value").textContent = wind + " mph";
-                    document.getElementById("temp-high").textContent = "H: " + tempMax + " F";
-                    document.getElementById("temp-low").textContent = "L: " + tempMin + " F";
-                    document.getElementById("data-container").classList.add("form-results");
-                    document.getElementById("weather-results").classList.remove("hidden");
-                    document.querySelector(".weather-results div img").classList.add("transition-fade");
+                    addWeatherData(data);
                     console.log(document.getElementById("img-description").classList);
-
                 })
                 .catch(error => {
-                    console.log("eorror");
-                    // Handle any errors
+                    console.log("There was an error fetching the weather results. "
+                    + "Examine the following error:\n" + error);
                 });;
         });
 
-        document.getElementById("cityInput").addEventListener("click", function () {
-            const cityInput = document.getElementById("error-msg");
-            if (!cityInput.classList.contains("hidden")) {
-                cityInput.classList.add("hidden");
-            }
-        });
+        function invalidLocationSearch() {
+            document.getElementById("data-container").classList.remove("form-results");
+            document.getElementById("data-container").classList.add("data-container");
 
-        document.getElementById("search-button").addEventListener("click", function () {
-            const welcomeMsg = document.getElementById("welcome-msg");
-            if (!welcomeMsg.classList.contains("hidden")) {
-                welcomeMsg.classList.add("hidden");
-            }
-        });
+            document.getElementById("weather-results").classList.add("hidden");
+            document.getElementById("welcome-msg").classList.remove("hidden");
+            document.getElementById("error-msg").classList.remove("hidden");
+        }
+
+        function addWeatherData(data) {
+            // Pull data from Weather API results
+            const imageURL = data.imageURL;
+            const temp = data.temp;
+            const description = data.description;
+            const feelsLike = data.feelsLike;
+            const humidity = data.humidity;
+            const wind = data.wind;
+            const tempMax = data.tempMax;
+            const tempMin = data.tempMin;
+
+            // Update weather results accordingly
+            document.getElementById("weather-img").src = imageURL;
+            document.getElementById("temp").textContent = temp + " F";
+            document.getElementById("weather-description").textContent = description;
+            document.getElementById("feels-like-temp").textContent = feelsLike + " F";
+            document.getElementById("humidity-value").textContent = humidity + "%";
+            document.getElementById("wind-value").textContent = wind + " mph";
+            document.getElementById("temp-high").textContent = "H: " + tempMax + " F";
+            document.getElementById("temp-low").textContent = "L: " + tempMin + " F";
+
+            // Display results
+            document.getElementById("data-container").classList.add("form-results");
+            document.getElementById("data-container").classList.remove("data-container");
+            document.getElementById("weather-results").classList.remove("hidden");
+            document.getElementById("error-msg").classList.add("hidden");
+            document.getElementById("welcome-msg").classList.add("hidden");
+        };
     </script>
 </body>
 
