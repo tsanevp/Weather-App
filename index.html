@@ -26,17 +26,43 @@
 
     <div class="middle-container">
         <h2 id="welcome-msg">Enter Your Location Below To View The Forcast In Your Area!</h2>
-        <form id="searchForm">
-            <label class="icon-placeholder" for="cityInput">
-                <i class='bx bxs-map'></i>
-            </label>
+        <div id="data-container" class="data-container">
+            <form id="searchForm">
+                <label class="icon-placeholder" for="cityInput">
+                    <i class='bx bxs-map'></i>
+                </label>
 
-            <input id="cityInput" type="text" name="cityName" placeholder="Enter your location" required>
+                <input id="cityInput" type="text" name="cityName" placeholder="Enter your location" required>
 
-            <button class="icon-placeholder" id="search-button" type="submit" name="button">
-                <i class='bx bx-search' id="search-icon"></i>
-            </button>
-        </form>
+                <button class="icon-placeholder" id="search-button" type="submit" name="button">
+                    <i class='bx bx-search' id="search-icon"></i>
+                </button>
+            </form>
+            <div id="weather-results" class="weather-results hidden">
+                <div id="img-description">
+                    <img id="weather-img" src="https://openweathermap.org/img/wn/04d@2x.png" alt="image">
+                    <div id="temp">60 F</div>
+                    <div id="weather-description">Mostly Cloudy</div>
+                </div>
+                <div id="feels-like" class="not-spaced">
+                    <p>FEELS LIKE</p>
+                    <p id="feels-like-temp">60 F</p>
+                </div>
+                <div id="humidity" class="not-spaced">
+                    <p>HUMIDITY</p>
+                    <p id="humidity-value">70%</p>
+                </div>
+                <div id="wind" class="not-spaced">
+                    <p>WIND</p>
+                    <p id="wind-value">3 mph</p>
+                </div>
+                <div id="temp-min-max" class="not-spaced">
+                    <p>TEMPERATURE</p>
+                    <p id="temp-high">H: 70 F</p>
+                    <p id="temp-low">L: 40 F</p>
+                </div>
+            </div>
+        </div>
         <h3 id="error-msg" class="hidden">There was an error retrieving that location. Please try again.</h3>
     </div>
 
@@ -62,7 +88,26 @@
                     }
                     console.log(data);
                     // Handle the response from the server
-                    document.querySelector("form").classList.add("form-results");
+
+                    const temp = data.temp;
+                    const feelsLike = data.feelsLike;
+                    const tempMin = data.tempMin;
+                    const tempMax = data.tempMax;
+                    const wind = data.wind;
+                    const humidity = data.humidity;
+                    const description = data.description;
+                    const imageURL = data.imageURL;
+
+                    document.getElementById("weather-img").src = imageURL;
+                    document.getElementById("temp").textContent = temp + " F";
+                    document.getElementById("weather-description").textContent = description;
+                    document.getElementById("feels-like-temp").textContent = feelsLike + " F";
+                    document.getElementById("humidity-value").textContent = humidity + "%";
+                    document.getElementById("wind-value").textContent = wind + " mph";
+                    document.getElementById("temp-high").textContent = "H: " + tempMax + " F";
+                    document.getElementById("temp-low").textContent = "L: " + tempMin + " F";
+                    document.getElementById("data-container").classList.add("form-results");
+                    document.getElementById("weather-results").classList.remove("hidden");
                 })
                 .catch(error => {
                     console.log("eorror");
@@ -70,14 +115,14 @@
                 });;
         });
 
-        document.getElementById("cityInput").addEventListener("click", function() {
+        document.getElementById("cityInput").addEventListener("click", function () {
             const cityInput = document.getElementById("error-msg");
             if (!cityInput.classList.contains("hidden")) {
                 cityInput.classList.add("hidden");
             }
         });
 
-        document.getElementById("search-button").addEventListener("click", function() {
+        document.getElementById("search-button").addEventListener("click", function () {
             const welcomeMsg = document.getElementById("welcome-msg");
             if (!welcomeMsg.classList.contains("hidden")) {
                 welcomeMsg.classList.add("hidden");

@@ -43,11 +43,16 @@ app.post("/", function (req, res) {
             }
 
             const temp = weatherData.main.temp;
+            const feelsLike = weatherData.main.feels_like;
+            const tempMin = weatherData.main.temp_min;
+            const tempMax = weatherData.main.temp_max;
+            const wind = weatherData.wind.speed;
+            const humidity = weatherData.main.humidity;
             const description = weatherData.weather[0].description;
             const imageId = weatherData.weather[0].icon;
             const imageURL = "https://openweathermap.org/img/wn/" + imageId + "@2x.png";
 
-            res.send({ temp, description, imageURL});
+            res.send({ temp, feelsLike, tempMin, tempMax, wind, humidity, description, imageURL});
         });
     }).on('error', (e) => {
         res.send(e);
