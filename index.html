@@ -25,14 +25,65 @@
     </header>
 
     <div class="middle-container">
-        <h2 class="welcome-msg">Enter Your Location Below To View The Forcast In Your Area!</h2>
-        <form action="/" method="POST">
-            <label class="icon-placeholder" for="cityInput"><i class='bx bxs-map'></i></label>
-            <input id="cityInput" type="text" name="cityName" placeholder="Enter your location">
-            <button class="icon-placeholder" id="search-button" type="submit" name="button"><i class='bx bx-search'
-                    id="search-icon"></i></button>
+        <h2 id="welcome-msg">Enter Your Location Below To View The Forcast In Your Area!</h2>
+        <form id="searchForm">
+            <label class="icon-placeholder" for="cityInput">
+                <i class='bx bxs-map'></i>
+            </label>
+
+            <input id="cityInput" type="text" name="cityName" placeholder="Enter your location" required>
+
+            <button class="icon-placeholder" id="search-button" type="submit" name="button">
+                <i class='bx bx-search' id="search-icon"></i>
+            </button>
         </form>
+        <h3 id="error-msg" class="hidden">There was an error retrieving that location. Please try again.</h3>
     </div>
+
+    <script>
+        const form = document.getElementById('searchForm');
+
+        form.addEventListener('submit', (event) => {
+            event.preventDefault();
+            const formData = new FormData(form);
+            const cityName = Object.fromEntries(formData);
+
+            fetch('/', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify(cityName)
+            }).then(response => response.json())
+                .then(data => {
+                    if (data.invalidLocation) {
+                        document.getElementById("error-msg").classList.remove("hidden");
+                        return;
+                    }
+                    console.log(data);
+                    // Handle the response from the server
+                    document.querySelector("form").classList.add("form-results");
+                })
+                .catch(error => {
+                    console.log("eorror");
+                    // Handle any errors
+                });;
+        });
+
+        document.getElementById("cityInput").addEventListener("click", function() {
+            const cityInput = document.getElementById("error-msg");
+            if (!cityInput.classList.contains("hidden")) {
+                cityInput.classList.add("hidden");
+            }
+        });
+
+        document.getElementById("search-button").addEventListener("click", function() {
+            const welcomeMsg = document.getElementById("welcome-msg");
+            if (!welcomeMsg.classList.contains("hidden")) {
+                welcomeMsg.classList.add("hidden");
+            }
+        });
+    </script>
 </body>
 
 </html>

@@ -57,8 +57,8 @@ body {
     height: 100vh;
 }
 
-.welcome-msg {
-    margin-bottom: 60px;
+#welcome-msg {
+    margin-bottom: 20px;
     color: #EEEEEE;
     font-size: 24px;
     font-weight: bold;
@@ -74,6 +74,17 @@ form {
     border-radius: 8px;
 }
 
+.form-results {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-evenly;
+    width: 350px;
+    height: 500px;
+    background-color: #EEEEEE;
+    border-radius: 8px;
+    transition: 5s;
+}
+
 .icon-placeholder {
     display: flex;
     align-items: center;
@@ -85,7 +96,7 @@ form {
 
 #cityInput {
     width: 250px;
-    height: 75%;
+    height: 60px;
     border: none;
     outline: none;
     padding: 0px 10px;
@@ -119,4 +130,14 @@ input:-webkit-autofill:active {
     -webkit-text-fill-color: #222831;
     transition: background-color 5000s ease-in-out 0s;
     box-shadow: inset 0 0 20px 20px #EEEEEE;
+}
+
+#error-msg {
+    margin-top: 20px;
+    font-size: 20px;
+    color: #00ADB5;
+}
+
+.hidden {
+    visibility: hidden;
 }
