@@ -15,13 +15,25 @@
 
 <body>
     <header class="header" id="navbar">
-        <a href="/" class="logo">Weather App</a>
+        <div id="section-1" class="header-sections">
+            <nav class="nav-bar">
+                <a href="/">Home</a>
+                <a href="./about.html">About</a>
+                <a href="./contact.html">Contact</a>
+            </nav>
+        </div>
 
-        <nav class="nav-bar">
-            <a href="/">Home</a>
-            <a href="./about.html">About</a>
-            <a href="./contact.html">Contact</a>
-        </nav>
+        <div id="section-2" class="header-sections">
+            <a href="/" class="logo">Weather App</a>
+        </div>
+        <div id="section-3" class="header-sections">
+            <p class="display-units">&degF</p>
+            <label class="switch">
+                <input id="checkbox" type="checkbox">
+                <span class="slider round"></span>
+            </label>
+            <p class="display-units">&degC</p>
+        </div>
     </header>
 
     <div class="middle-container">
@@ -59,7 +71,7 @@
                     </div>
                 </div>
                 <div id="temp-min-max" class="not-spaced">
-                    <i class="fa-solid fa-sun result-icon"></i>                   
+                    <i class="fa-solid fa-sun result-icon"></i>
                     <div class="display-data">
                         <p>TEMP</p>
                         <p id="temp-high" class="display-data-value">H: 70 F</p>
@@ -78,74 +90,7 @@
         <h3 id="error-msg" class="hidden">There was an error retrieving that location. Please try again.</h3>
     </div>
 
-    <script>
-        const form = document.getElementById('searchForm');
-
-        form.addEventListener('submit', (event) => {
-            event.preventDefault();
-            const formData = new FormData(form);
-            const cityName = Object.fromEntries(formData);
-
-            fetch('/', {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json',
-                },
-                body: JSON.stringify(cityName)
-            }).then(response => response.json())
-                .then(data => {
-                    if (data.invalidLocation) {
-                        invalidLocationSearch();
-                        return;
-                    }
-
-                    addWeatherData(data);
-                    console.log(document.getElementById("img-description").classList);
-                })
-                .catch(error => {
-                    console.log("There was an error fetching the weather results. "
-                        + "Examine the following error:\n" + error);
-                });;
-        });
-
-        function invalidLocationSearch() {
-            document.getElementById("data-container").classList.remove("form-results");
-            document.getElementById("data-container").classList.add("data-container");
-
-            document.getElementById("weather-results").classList.add("hidden");
-            document.getElementById("welcome-msg").classList.remove("hidden");
-            document.getElementById("error-msg").classList.remove("hidden");
-        }
-
-        function addWeatherData(data) {
-            // Pull data from Weather API results
-            const imageURL = data.imageURL;
-            const temp = data.temp;
-            const description = data.description;
-            const feelsLike = data.feelsLike;
-            const humidity = data.humidity;
-            const wind = data.wind;
-            const tempMax = data.tempMax;
-            const tempMin = data.tempMin;
-
-            // Update weather results accordingly
-            document.getElementById("weather-img").src = imageURL;
-            document.getElementById("temp").textContent = temp + " F";
-            document.getElementById("weather-description").textContent = description;
-            document.getElementById("feels-like-temp").textContent = feelsLike + " F";
-            document.getElementById("humidity-value").textContent = humidity + "%";
-            document.getElementById("wind-value").textContent = wind + " mph";
-            document.getElementById("temp-high").textContent = "H: " + tempMax + " F";
-            document.getElementById("temp-low").textContent = "L: " + tempMin + " F";
-
-            // Display results
-            document.getElementById("data-container").classList.add("form-results");
-            document.getElementById("data-container").classList.remove("data-container");
-            document.getElementById("weather-results").classList.remove("hidden");
-            document.getElementById("error-msg").classList.add("hidden");
-            document.getElementById("welcome-msg").classList.add("hidden");
-        };
-    </script>
+    <script src="js/index.js" charset="utf-8"></script>
     <script src="https://kit.fontawesome.com/2965a8a6d1.js" crossorigin="anonymous"></script>
 </body>
 

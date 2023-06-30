@@ -27,8 +27,12 @@ app.get("/about.html", function (req, res) {
 });
 
 app.post("/", function (req, res) {
+    console.log(req.body);
     const query = req.body.cityName;
-    const units = "imperial";
+
+    let units = "imperial";
+    if (req.body.unitsCelcius) units = "metric";
+
     const url = "https://api.openweathermap.org/data/2.5/weather?q=" + query + "&units=" + units + "&appid=" + apiKey;
 
     https.get(url, (response) => {
