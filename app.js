@@ -27,7 +27,6 @@ app.get("/about.html", function (req, res) {
 });
 
 app.post("/", function (req, res) {
-    console.log(req.body);
     const query = req.body.cityName;
 
     let units = "imperial";
@@ -67,14 +66,15 @@ app.post("/contact.html", function (req, res) {
     const url = "https://docs.google.com/forms/d/e/1FAIpQLSddoLVzy0JmAmq2P5ynYhaX8hUBJ22c3yuNFlWgt7Z13SBJ3A/formResponse?entry.225115399=" + name + "&entry.90530336=" + emailAddress + "&entry.2053798052=" + message;
 
     https.get(url, (response) => {
-        const responseCode = response.statusCode;
-
+        let complete = true;
+        
         if (response.statusCode !== 200) {
-            res.sendFile(__dirname + "/contactError.html");
+            complete = false;
+            res.send({ complete });
             return;
         }
 
-        res.sendFile(__dirname + "/contactSuccess.html");
+        res.send({ complete });
     }).on('error', (e) => {
         res.send(e);
     });

@@ -21,7 +21,6 @@ form.addEventListener('submit', (event) => {
             }
 
             addWeatherData(data, unitsCelcius);
-            console.log(document.getElementById("img-description").classList);
         })
         .catch(error => {
             console.log("There was an error fetching the weather results. "
@@ -30,12 +29,12 @@ form.addEventListener('submit', (event) => {
 });
 
 function invalidLocationSearch() {
-    document.getElementById("data-container").classList.remove("form-results");
-    document.getElementById("data-container").classList.add("data-container");
+    $("#data-container").removeClass("form-results");
+    $("#data-container").addClass("data-container");
 
-    document.getElementById("weather-results").classList.add("hidden");
-    document.getElementById("welcome-msg").classList.remove("hidden");
-    document.getElementById("error-msg").classList.remove("hidden");
+    $("#weather-results").addClass("hidden");
+    $("#welcome-msg").removeClass("hidden");
+    $("#error-msg").removeClass("hidden");
 }
 
 function addWeatherData(data, unitsCelcius) {
@@ -56,19 +55,19 @@ function addWeatherData(data, unitsCelcius) {
     if (unitsCelcius) unitsSpeed = "km/h";
 
     // Update weather results accordingly
-    document.getElementById("weather-img").src = imageURL;
-    document.getElementById("temp").textContent = temp + " \u00B0" + unitsTemp;
-    document.getElementById("weather-description").textContent = description;
-    document.getElementById("feels-like-temp").textContent = feelsLike + " \u00B0" + unitsTemp;
-    document.getElementById("humidity-value").textContent = humidity + "%";
-    document.getElementById("wind-value").textContent = wind + " " + unitsSpeed;
-    document.getElementById("temp-high").textContent = "H: " + tempMax + " \u00B0" + unitsTemp;
-    document.getElementById("temp-low").textContent = "L: " + tempMin + " \u00B0" + unitsTemp;
+    $("#weather-img").attr("src", imageURL);
+    $("#temp").text(temp + " \u00B0" + unitsTemp);
+    $("#weather-description").text(description);
+    $("#feels-like-temp").text(feelsLike + " \u00B0" + unitsTemp);
+    $("#humidity-value").text(humidity + "%");
+    $("#wind-value").text(wind + " " + unitsSpeed);
+    $("#temp-high").text("H: " + tempMax + " \u00B0" + unitsTemp);
+    $("#temp-low").text("L: " + tempMin + " \u00B0" + unitsTemp);
 
     // Display results
-    document.getElementById("data-container").classList.add("form-results");
-    document.getElementById("data-container").classList.remove("data-container");
-    document.getElementById("weather-results").classList.remove("hidden");
-    document.getElementById("error-msg").classList.add("hidden");
-    document.getElementById("welcome-msg").classList.add("hidden");
+    $("#data-container").addClass("form-results");
+    $("#data-container").removeClass("data-container");
+    $("#weather-results").removeClass("hidden");
+    $("#error-msg").addClass("hidden");
+    $("#welcome-msg").addClass("hidden");
 };

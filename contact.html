@@ -14,33 +14,39 @@
 
 <body>
     <header class="header" id="navbar">
-        <a href="/" class="logo">Weather App</a>
+        <div id="section-1" class="header-sections">
+            <nav class="nav-bar">
+                <a href="/">Home</a>
+                <a href="./about.html">About</a>
+                <a href="./contact.html">Contact</a>
+            </nav>
+        </div>
 
-        <nav class="nav-bar">
-            <a href="/">Home</a>
-            <a href="./About.html">About</a>
-            <a href="./Contact.html">Contact</a>
-        </nav>
+        <div id="section-2" class="header-sections">
+            <a href="/" class="logo">Weather App</a>
+        </div>
+        <div id="section-3" class="header-sections"></div>
     </header>
 
-    <div class="middle-container">
-        <form action="/contact.html" method="POST">
+    <div id="submission-form" class="middle-container">
+        <form id="contact-form">
             <h1 class="intro-msg">Contact Me</h1>
 
             <div class="form-field">
                 <label for="name-input" class="form-label">Name</label>
-                <input type="text" class="form-input" name="name" placeholder="Enter Your Name" required>
+                <input type="text" class="form-input" id="name" name="name" placeholder="Enter Your Name" required>
             </div>
 
             <div class="form-field">
                 <label for="email-input" class="form-label">Email address</label>
-                <input type="email" class="form-input" name="emailAddress" placeholder="Enter Your Email Address"
-                    required>
+                <input type="email" class="form-input" id="email-address" name="emailAddress"
+                    placeholder="Enter Your Email Address" required>
             </div>
 
             <div class="form-field">
                 <label for="message-input" class="form-label">Message</label>
-                <textarea class="form-input" name="message" placeholder="Please Type Your Message" required></textarea>
+                <textarea class="form-input" id="message" name="message" placeholder="Please Type Your Message"
+                    required></textarea>
             </div>
 
             <div class="form-field">
@@ -48,6 +54,20 @@
             </div>
         </form>
     </div>
+
+    <div id="success-msg" class="post-submit hidden">
+        <h2 class="msg">Your Message Was Successfully Sent!</h2>
+        <a class="btn" href="/">Go Home</a>
+
+    </div>
+
+    <div id="error-msg" class="post-submit hidden">
+        <h2 class="msg">There Was An Error Contacting Peter. Please Try Again!</h2>
+        <a class="btn" href="/contact.html">Go Back</a>
+    </div>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.0/jquery.min.js"></script>
+    <script src="js/contact.js" charset="utf-8"></script>
 </body>
 
 </html>

@@ -50,9 +50,43 @@
     cursor: pointer;
   }
 
-
   .form-submit-btn:hover {
     color: #EEEEEE;
     background-color: #00ADB5;
     transition: .5s;
   }
+
+  .post-submit > * {
+    color: #EEEEEE;
+  }
+
+.msg {
+    font-size: 26px;
+    margin-bottom: 20px;
+}
+
+.btn {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100px;
+    height: 40px;
+    font-size: 16px;
+    border-radius: 8px;
+    border: 2px #EEEEEE solid;
+    transition: .5s;
+}
+
+.btn:hover {
+    color: #393E46;
+    background-color: #EEEEEE;
+    transition: .5s;
+    font-weight: bold;
+}
+
+.hidden {
+  position: absolute;
+  top: 0;
+  left: 0;
+  transition: none;
+}
