@@ -23,11 +23,10 @@ app.get("/contact.html", function (req, res) {
 });
 
 app.get("/about.html", function (req, res) {
-    res.send("Built using Nodejs and Expressjs");
+    res.redirect("https://github.com/tsanevp/Weather-App");
 });
 
 app.post("/", function (req, res) {
-    // console.log(req.body);
     const query = req.body.cityName;
     const units = "imperial";
     const url = "https://api.openweathermap.org/data/2.5/weather?q=" + query + "&units=" + units + "&appid=" + apiKey;
@@ -78,6 +77,6 @@ app.post("/contact.html", function (req, res) {
 });
 
 
-app.listen(3000, function () {
+app.listen(8080, function () {
     console.log("Server is running on port 3000.")
 })

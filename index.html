@@ -35,7 +35,7 @@
                 <input id="cityInput" type="text" name="cityName" placeholder="Enter your location" required>
 
                 <button class="icon-placeholder" id="search-button" type="submit" name="button">
-                    <i class='bx bx-search' id="search-icon"></i>
+                    <i id="search-icon" class='bx bx-search'></i>
                 </button>
             </form>
             <div id="weather-results" class="weather-results hidden">
@@ -44,22 +44,34 @@
                     <div id="temp">60 F</div>
                     <div id="weather-description">Mostly Cloudy</div>
                 </div>
-                <div id="feels-like" class="not-spaced">
-                    <p>FEELS LIKE</p>
-                    <p id="feels-like-temp">60 F</p>
+                <div id="wind" class="not-spaced">
+                    <i class="fa-solid fa-wind result-icon"></i>
+                    <div class="display-data">
+                        <p>WIND</p>
+                        <p id="wind-value" class="display-data-value">3 mph</p>
+                    </div>
                 </div>
                 <div id="humidity" class="not-spaced">
-                    <p>HUMIDITY</p>
-                    <p id="humidity-value">70%</p>
-                </div>
-                <div id="wind" class="not-spaced">
-                    <p>WIND</p>
-                    <p id="wind-value">3 mph</p>
+                    <i class="fa-solid fa-water result-icon"></i>
+                    <div class="display-data">
+                        <p>HUMIDITY</p>
+                        <p id="humidity-value" class="display-data-value">70%</p>
+                    </div>
                 </div>
                 <div id="temp-min-max" class="not-spaced">
-                    <p>TEMPERATURE</p>
-                    <p id="temp-high">H: 70 F</p>
-                    <p id="temp-low">L: 40 F</p>
+                    <i class="fa-solid fa-sun result-icon"></i>                   
+                    <div class="display-data">
+                        <p>TEMP</p>
+                        <p id="temp-high" class="display-data-value">H: 70 F</p>
+                        <p id="temp-low" class="display-data-value">L: 40 F</p>
+                    </div>
+                </div>
+                <div id="feels-like" class="not-spaced">
+                    <i class="fa-solid fa-temperature-three-quarters result-icon"></i>
+                    <div class="display-data">
+                        <p>FEELS LIKE</p>
+                        <p id="feels-like-temp" class="display-data-value">60 F</p>
+                    </div>
                 </div>
             </div>
         </div>
@@ -92,7 +104,7 @@
                 })
                 .catch(error => {
                     console.log("There was an error fetching the weather results. "
-                    + "Examine the following error:\n" + error);
+                        + "Examine the following error:\n" + error);
                 });;
         });
 
@@ -134,6 +146,7 @@
             document.getElementById("welcome-msg").classList.add("hidden");
         };
     </script>
+    <script src="https://kit.fontawesome.com/2965a8a6d1.js" crossorigin="anonymous"></script>
 </body>
 
 </html>
