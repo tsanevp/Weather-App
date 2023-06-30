@@ -7,7 +7,6 @@ import bodyParser from 'body-parser';
 
 const app = express();
 const __dirname = dirname(fileURLToPath(import.meta.url));
-
 const apiKey = secrets.apiKey;
 
 app.use(bodyParser.urlencoded({ extended: true }));
@@ -67,7 +66,7 @@ app.post("/contact.html", function (req, res) {
 
     https.get(url, (response) => {
         let complete = true;
-        
+
         if (response.statusCode !== 200) {
             complete = false;
             res.send({ complete });
@@ -79,7 +78,6 @@ app.post("/contact.html", function (req, res) {
         res.send(e);
     });
 });
-
 
 app.listen(8080, function () {
     console.log("Server is running on port 3000.")

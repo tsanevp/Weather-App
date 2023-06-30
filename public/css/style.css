@@ -256,8 +256,12 @@ input:-webkit-autofill:active {
     height: 120px;
 }
 
-#temp {
+#location {
     font-size: 30px;
+}
+
+#temp {
+    font-size: 28px;
 }
 
 #img-description {

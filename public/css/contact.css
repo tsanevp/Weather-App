@@ -1,87 +1,87 @@
-  form {
-    background-color: #EEEEEE;
-    color: #00ADB5;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
-    height: 600px;
-    width: 500px;
-    border-radius: 8px;
-  }
+form {
+  background-color: #EEEEEE;
+  color: #00ADB5;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  height: 600px;
+  width: 500px;
+  border-radius: 8px;
+}
 
-  .form-field {
-    margin: 10px;
-    display: flex;
-    flex-direction: column;
-    font-size: 20px;
-  }
+.form-field {
+  margin: 10px;
+  display: flex;
+  flex-direction: column;
+  font-size: 20px;
+}
 
-  .intro-msg {
-    width: 360px;
-    text-align: center;
-  }
+.intro-msg {
+  width: 360px;
+  text-align: center;
+}
 
-  .form-input {
-    width: 356px;
-    padding: 5px;
-    border: 2px solid #E7DFDD;
-    border-radius: 8px;
-    margin-top: 2px;
-    outline: none;
-  }
+.form-input {
+  width: 356px;
+  padding: 5px;
+  border: 2px solid #E7DFDD;
+  border-radius: 8px;
+  margin-top: 2px;
+  outline: none;
+}
 
-  textarea {
-    resize: none;
-    height: 100px;
-  }
+textarea {
+  resize: none;
+  height: 100px;
+}
 
-  .form-submit-btn {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    width: 100px;
-    height: 40px;
-    border: 2px solid #00ADB5;
-    border-radius: 8px;
-    color: #00ADB5;
-    font-weight: 600;
-    transition: .5s;
-    cursor: pointer;
-  }
+.form-submit-btn {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100px;
+  height: 40px;
+  border: 2px solid #00ADB5;
+  border-radius: 8px;
+  color: #00ADB5;
+  font-weight: 600;
+  transition: .5s;
+  cursor: pointer;
+}
 
-  .form-submit-btn:hover {
-    color: #EEEEEE;
-    background-color: #00ADB5;
-    transition: .5s;
-  }
+.form-submit-btn:hover {
+  color: #EEEEEE;
+  background-color: #00ADB5;
+  transition: .5s;
+}
 
-  .post-submit > * {
-    color: #EEEEEE;
-  }
+.post-submit>* {
+  color: #EEEEEE;
+}
 
 .msg {
-    font-size: 26px;
-    margin-bottom: 20px;
+  font-size: 26px;
+  margin-bottom: 20px;
 }
 
 .btn {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    width: 100px;
-    height: 40px;
-    font-size: 16px;
-    border-radius: 8px;
-    border: 2px #EEEEEE solid;
-    transition: .5s;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100px;
+  height: 40px;
+  font-size: 16px;
+  border-radius: 8px;
+  border: 2px #EEEEEE solid;
+  transition: .5s;
 }
 
 .btn:hover {
-    color: #393E46;
-    background-color: #EEEEEE;
-    transition: .5s;
-    font-weight: bold;
+  color: #393E46;
+  background-color: #EEEEEE;
+  transition: .5s;
+  font-weight: bold;
 }
 
 .hidden {

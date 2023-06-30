@@ -20,7 +20,7 @@ form.addEventListener('submit', (event) => {
                 return;
             }
 
-            addWeatherData(data, unitsCelcius);
+            addWeatherData(data, unitsCelcius, cityName);
         })
         .catch(error => {
             console.log("There was an error fetching the weather results. "
@@ -37,7 +37,7 @@ function invalidLocationSearch() {
     $("#error-msg").removeClass("hidden");
 }
 
-function addWeatherData(data, unitsCelcius) {
+function addWeatherData(data, unitsCelcius, cityName) {
     // Pull data from Weather API results
     const imageURL = data.imageURL;
     const temp = data.temp;
@@ -56,6 +56,7 @@ function addWeatherData(data, unitsCelcius) {
 
     // Update weather results accordingly
     $("#weather-img").attr("src", imageURL);
+    $("#location").text(cityName);
     $("#temp").text(temp + " \u00B0" + unitsTemp);
     $("#weather-description").text(description);
     $("#feels-like-temp").text(feelsLike + " \u00B0" + unitsTemp);
