@@ -5,6 +5,7 @@
 - [Overview](https://github.com/tsanevp/Weather-App#overview)
     - [The challenge](https://github.com/tsanevp/Weather-App#the-challenge)
     - [Screenshot](https://github.com/tsanevp/Weather-App#screenshot)
+    - [Links](https://github.com/tsanevp/Weather-App#links)
 - [My process](https://github.com/tsanevp/Weather-App#my-process)
     - [Built with](https://github.com/tsanevp/Weather-App#built-with)
     - [What I learned](https://github.com/tsanevp/Weather-App#what-i-learned)
@@ -17,15 +18,21 @@
 
 ### The challenge
 
-- Creating my first Express.js/Node.js project:
-    - It was a great learning opportunity to challenge myself in making a basic calculator using Express.js & Node.js. To better understand how to work in Express, all the calculation logic was handled on the back-end.
+- Creating my first Express.js/Node.js project that calls an external API:
 - Working with GET/POST requests
 - Keeping my code readable and easy to understand
     
 ### Screenshot
 
-#### Starting Screen
-<img width="1920" alt="starting state of calculator" src="https://github.com/tsanevp/Calculator-App/blob/main/public/images/calculator-starting-page.png">
+#### Home Page
+<img width="1920" alt="weather app home screen" src="https://github.com/tsanevp/Weather-App/blob/main/public/images/home-page.png">
+
+#### Search Results
+<img width="1920" alt="weather app search results" src="https://github.com/tsanevp/Weather-App/blob/main/public/images/search-results.png">
+
+### Links
+
+Live Site URL: [Weather App](https://quiet-water-7642.fly.dev/)
 
 ## My process
 
@@ -37,16 +44,18 @@
 #### Backend
 - Node.js
 - Express.js
+#### Deployed On
+- Fly.io
 
 ### What I learned
 
-- How to use Express.js to host a server locally
+- Working with transitions in CSS and replacing text using JS
 - How to communicate and send data between my front & back-end code
 
 ### Continued development
 
 - [ ]  Improve UX and front-end design of the city search page
-- [ ]  Add additional buttons and features to the calculator
+- [ ]  Add detailed About page rather than redirecting back to GitHub
 
 ### Useful resources
 
