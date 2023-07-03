@@ -1,6 +1,17 @@
+var resultsDisplayed = false;
+var unitsSelector = document.getElementById('checkbox');
+
 const form = document.getElementById('searchForm');
 
 form.addEventListener('submit', (event) => {
+    getWeatherResults(event);
+});
+
+unitsSelector.addEventListener('change', function (event) {
+    if (resultsDisplayed) getWeatherResults(event);
+});
+
+function getWeatherResults(event) {
     event.preventDefault();
     const formData = new FormData(form);
     const cityName = Object.fromEntries(formData).cityName;
@@ -26,18 +37,22 @@ form.addEventListener('submit', (event) => {
             console.log("There was an error fetching the weather results. "
                 + "Examine the following error:\n" + error);
         });;
-});
+};
 
 function invalidLocationSearch() {
+    resultsDisplayed = false;
+
     $("#data-container").removeClass("form-results");
     $("#data-container").addClass("data-container");
 
     $("#weather-results").addClass("hidden");
     $("#welcome-msg").removeClass("hidden");
     $("#error-msg").removeClass("hidden");
-}
+};
 
 function addWeatherData(data, unitsCelcius, cityName) {
+    resultsDisplayed = true;
+
     // Pull data from Weather API results
     const imageURL = data.imageURL;
     const temp = data.temp;
@@ -56,7 +71,7 @@ function addWeatherData(data, unitsCelcius, cityName) {
 
     // Update weather results accordingly
     $("#weather-img").attr("src", imageURL);
-    $("#location").text(cityName);
+    $("#location").text(capitilizeLetters(cityName));
     $("#temp").text(temp + " \u00B0" + unitsTemp);
     $("#weather-description").text(description);
     $("#feels-like-temp").text(feelsLike + " \u00B0" + unitsTemp);
@@ -71,4 +86,14 @@ function addWeatherData(data, unitsCelcius, cityName) {
     $("#weather-results").removeClass("hidden");
     $("#error-msg").addClass("hidden");
     $("#welcome-msg").addClass("hidden");
+};
+
+function capitilizeLetters(location) {
+    const arr = location.split(" ");
+
+    for (i = 0; i < arr.length; i++) {
+        arr[i] = arr[i].charAt(0).toUpperCase() + arr[i].slice(1);
+    };
+
+    return arr.join(" ");
 };
